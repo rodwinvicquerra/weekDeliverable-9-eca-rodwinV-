@@ -22,12 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Get Clerk keys from environment
-  // ClerkProvider will handle missing keys gracefully
-  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
-  
   return (
-    <ClerkProvider publishableKey={publishableKey || undefined}>
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
           <Suspense fallback={null}>
